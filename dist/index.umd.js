@@ -3101,12 +3101,8 @@
 	            },
 	            onClick: this.handleSearchWrapperClick
 	          },
-	          react.createElement("input", { type: "button", onClick: function onClick(e) {
-	              _this2.handleUnsplashSelected();
-	            }, label: "Unsplash" }),
-	          react.createElement("input", { type: "button", onClick: function onClick(e) {
-	              _this2.handleFlickrSelected();
-	            }, label: "Flickr" }),
+	          react.createElement("input", { type: "button", onClick: this.handleUnsplashSelected, label: "Unsplash" }),
+	          react.createElement("input", { type: "button", onClick: this.handleFlickrSelected, label: "Flickr" }),
 	          react.createElement(SearchInputIcon, {
 	            isLoading: isLoadingSearch,
 	            hasError: !!error,
