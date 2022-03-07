@@ -38,6 +38,7 @@ export default class UnsplashPicker extends React.Component {
   static propTypes = {
     accessKey: string.isRequired,
     applicationName: string.isRequired,
+    flickrAccessKey: string.isRequired,
     columns: number,
     defaultSearch: string,
     highlightColor: string,
@@ -66,7 +67,9 @@ export default class UnsplashPicker extends React.Component {
     super(props)
 
     this.state = {
+      mode: "unsplash",
       unsplash: null,
+      flickr: null,
       photos: [],
       totalPhotosCount: null,
       isLoadingSearch: true,
@@ -86,7 +89,11 @@ export default class UnsplashPicker extends React.Component {
       __debug_chaosMonkey: this.props.__debug_chaosMonkey,
     })
 
-    this.setState({ unsplash })
+    const flickr = new FlickerWrapper({
+      accessKey: this.props.flickrAccessKey
+    })
+
+    this.setState({ unsplash, flickr })
     this.doSearch()
 
     this.recalculateSearchResultsWidth()
@@ -293,6 +300,10 @@ export default class UnsplashPicker extends React.Component {
           }}
           onClick={this.handleSearchWrapperClick}
         >
+          <input type="button" onClick={handleUnsplashSelected} label="Unsplash"/>
+          <input type="button" onClick={handleFlickrSelected} label="Flickr"/>
+
+
           <SearchInputIcon
             isLoading={isLoadingSearch}
             hasError={!!error}

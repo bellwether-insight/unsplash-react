@@ -1058,7 +1058,9 @@ var UnsplashPicker = function (_React$Component) {
     };
 
     _this.state = {
+      mode: "unsplash",
       unsplash: null,
+      flickr: null,
       photos: [],
       totalPhotosCount: null,
       isLoadingSearch: true,
@@ -1081,7 +1083,11 @@ var UnsplashPicker = function (_React$Component) {
         __debug_chaosMonkey: this.props.__debug_chaosMonkey
       });
 
-      this.setState({ unsplash: unsplash });
+      var flickr = new FlickerWrapper({
+        accessKey: this.props.flickrAccessKey
+      });
+
+      this.setState({ unsplash: unsplash, flickr: flickr });
       this.doSearch();
 
       this.recalculateSearchResultsWidth();
@@ -1183,6 +1189,8 @@ var UnsplashPicker = function (_React$Component) {
             },
             onClick: this.handleSearchWrapperClick
           },
+          React.createElement("input", { type: "button", onClick: handleUnsplashSelected, label: "Unsplash" }),
+          React.createElement("input", { type: "button", onClick: handleFlickrSelected, label: "Flickr" }),
           React.createElement(SearchInputIcon, {
             isLoading: isLoadingSearch,
             hasError: !!error,
@@ -1311,6 +1319,7 @@ var UnsplashPicker = function (_React$Component) {
 UnsplashPicker.propTypes = {
   accessKey: string$9.isRequired,
   applicationName: string$9.isRequired,
+  flickrAccessKey: string$9.isRequired,
   columns: number$3,
   defaultSearch: string$9,
   highlightColor: string$9,

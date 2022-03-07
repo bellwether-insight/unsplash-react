@@ -2962,7 +2962,9 @@
 	    };
 
 	    _this.state = {
+	      mode: "unsplash",
 	      unsplash: null,
+	      flickr: null,
 	      photos: [],
 	      totalPhotosCount: null,
 	      isLoadingSearch: true,
@@ -2985,7 +2987,11 @@
 	        __debug_chaosMonkey: this.props.__debug_chaosMonkey
 	      });
 
-	      this.setState({ unsplash: unsplash });
+	      var flickr = new FlickerWrapper({
+	        accessKey: this.props.flickrAccessKey
+	      });
+
+	      this.setState({ unsplash: unsplash, flickr: flickr });
 	      this.doSearch();
 
 	      this.recalculateSearchResultsWidth();
@@ -3087,6 +3093,8 @@
 	            },
 	            onClick: this.handleSearchWrapperClick
 	          },
+	          react.createElement("input", { type: "button", onClick: handleUnsplashSelected, label: "Unsplash" }),
+	          react.createElement("input", { type: "button", onClick: handleFlickrSelected, label: "Flickr" }),
 	          react.createElement(SearchInputIcon, {
 	            isLoading: isLoadingSearch,
 	            hasError: !!error,
@@ -3215,6 +3223,7 @@
 	UnsplashPicker.propTypes = {
 	  accessKey: string$9.isRequired,
 	  applicationName: string$9.isRequired,
+	  flickrAccessKey: string$9.isRequired,
 	  columns: number$3,
 	  defaultSearch: string$9,
 	  highlightColor: string$9,
