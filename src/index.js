@@ -308,7 +308,7 @@ export default class UnsplashPicker extends React.Component {
           }}
           onClick={this.handleSearchWrapperClick}
         >
-          <input type="button" onClick={this.handleUnsplashSelected} label="Unsplash"/>
+          {/* <input type="button" onClick={this.handleUnsplashSelected} label="Unsplash"/> */}
           <input type="button" onClick={this.handleFlickrSelected} label="Flickr"/>
 
 
