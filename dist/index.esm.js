@@ -1191,8 +1191,6 @@ var UnsplashPicker = function (_React$Component) {
             },
             onClick: this.handleSearchWrapperClick
           },
-          React.createElement("input", { type: "button", onClick: this.handleUnsplashSelected, label: "Unsplash" }),
-          React.createElement("input", { type: "button", onClick: this.handleFlickrSelected, label: "Flickr" }),
           React.createElement(SearchInputIcon, {
             isLoading: isLoadingSearch,
             hasError: !!error,
