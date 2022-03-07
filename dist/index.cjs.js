@@ -1029,14 +1029,6 @@ var UnsplashPicker = function (_React$Component) {
       });
     };
 
-    _this.handleUnsplashSelected = function (e) {
-      _this.setState({ mode: "unsplash" });
-    };
-
-    _this.handleFlickrSelected = function (e) {
-      _this.setState({ mode: "flickr" });
-    };
-
     _this.handleSearchChange = function (e) {
       _this.setState({ search: e.target.value });
     };
