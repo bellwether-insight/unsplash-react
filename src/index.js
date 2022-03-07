@@ -89,11 +89,11 @@ export default class UnsplashPicker extends React.Component {
       __debug_chaosMonkey: this.props.__debug_chaosMonkey,
     })
 
-    const flickr = new FlickerWrapper({
-      accessKey: this.props.flickrAccessKey
-    })
+    // const flickr = new FlickrWrapper({
+    //   accessKey: this.props.flickrAccessKey
+    // })
 
-    this.setState({ unsplash, flickr })
+    this.setState({ unsplash })
     this.doSearch()
 
     this.recalculateSearchResultsWidth()

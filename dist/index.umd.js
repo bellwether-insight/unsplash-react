@@ -2933,6 +2933,14 @@
 	      });
 	    };
 
+	    _this.handleUnsplashSelected = function (e) {
+	      _this.setState({ mode: "unsplash" });
+	    };
+
+	    _this.handleFlickrSelected = function (e) {
+	      _this.setState({ mode: "flickr" });
+	    };
+
 	    _this.handleSearchChange = function (e) {
 	      _this.setState({ search: e.target.value });
 	    };
@@ -2987,11 +2995,11 @@
 	        __debug_chaosMonkey: this.props.__debug_chaosMonkey
 	      });
 
-	      var flickr = new FlickerWrapper({
-	        accessKey: this.props.flickrAccessKey
-	      });
+	      // const flickr = new FlickrWrapper({
+	      //   accessKey: this.props.flickrAccessKey
+	      // })
 
-	      this.setState({ unsplash: unsplash, flickr: flickr });
+	      this.setState({ unsplash: unsplash });
 	      this.doSearch();
 
 	      this.recalculateSearchResultsWidth();
@@ -3093,6 +3101,8 @@
 	            },
 	            onClick: this.handleSearchWrapperClick
 	          },
+	          react.createElement("input", { type: "button", onClick: this.handleUnsplashSelected, label: "Unsplash" }),
+	          react.createElement("input", { type: "button", onClick: this.handleFlickrSelected, label: "Flickr" }),
 	          react.createElement(SearchInputIcon, {
 	            isLoading: isLoadingSearch,
 	            hasError: !!error,

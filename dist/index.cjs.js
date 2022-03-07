@@ -1029,6 +1029,14 @@ var UnsplashPicker = function (_React$Component) {
       });
     };
 
+    _this.handleUnsplashSelected = function (e) {
+      _this.setState({ mode: "unsplash" });
+    };
+
+    _this.handleFlickrSelected = function (e) {
+      _this.setState({ mode: "flickr" });
+    };
+
     _this.handleSearchChange = function (e) {
       _this.setState({ search: e.target.value });
     };
@@ -1083,11 +1091,11 @@ var UnsplashPicker = function (_React$Component) {
         __debug_chaosMonkey: this.props.__debug_chaosMonkey
       });
 
-      var flickr = new FlickerWrapper({
-        accessKey: this.props.flickrAccessKey
-      });
+      // const flickr = new FlickrWrapper({
+      //   accessKey: this.props.flickrAccessKey
+      // })
 
-      this.setState({ unsplash: unsplash, flickr: flickr });
+      this.setState({ unsplash: unsplash });
       this.doSearch();
 
       this.recalculateSearchResultsWidth();
@@ -1189,6 +1197,8 @@ var UnsplashPicker = function (_React$Component) {
             },
             onClick: this.handleSearchWrapperClick
           },
+          React.createElement("input", { type: "button", onClick: this.handleUnsplashSelected, label: "Unsplash" }),
+          React.createElement("input", { type: "button", onClick: this.handleFlickrSelected, label: "Flickr" }),
           React.createElement(SearchInputIcon, {
             isLoading: isLoadingSearch,
             hasError: !!error,
