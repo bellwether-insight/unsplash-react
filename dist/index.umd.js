@@ -2933,6 +2933,14 @@
 	      });
 	    };
 
+	    _this.handleUnsplashSelected = function (e) {
+	      _this.setState({ mode: "unsplash" });
+	    };
+
+	    _this.handleFlickrSelected = function (e) {
+	      _this.setState({ mode: "flickr" });
+	    };
+
 	    _this.handleSearchChange = function (e) {
 	      _this.setState({ search: e.target.value });
 	    };
@@ -3093,8 +3101,8 @@
 	            },
 	            onClick: this.handleSearchWrapperClick
 	          },
-	          react.createElement("input", { type: "button", onClick: handleUnsplashSelected, label: "Unsplash" }),
-	          react.createElement("input", { type: "button", onClick: handleFlickrSelected, label: "Flickr" }),
+	          react.createElement("input", { type: "button", onClick: this.handleUnsplashSelected, label: "Unsplash" }),
+	          react.createElement("input", { type: "button", onClick: this.handleFlickrSelected, label: "Flickr" }),
 	          react.createElement(SearchInputIcon, {
 	            isLoading: isLoadingSearch,
 	            hasError: !!error,

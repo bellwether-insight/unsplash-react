@@ -1029,6 +1029,14 @@ var UnsplashPicker = function (_React$Component) {
       });
     };
 
+    _this.handleUnsplashSelected = function (e) {
+      _this.setState({ mode: "unsplash" });
+    };
+
+    _this.handleFlickrSelected = function (e) {
+      _this.setState({ mode: "flickr" });
+    };
+
     _this.handleSearchChange = function (e) {
       _this.setState({ search: e.target.value });
     };
@@ -1189,8 +1197,8 @@ var UnsplashPicker = function (_React$Component) {
             },
             onClick: this.handleSearchWrapperClick
           },
-          React.createElement("input", { type: "button", onClick: handleUnsplashSelected, label: "Unsplash" }),
-          React.createElement("input", { type: "button", onClick: handleFlickrSelected, label: "Flickr" }),
+          React.createElement("input", { type: "button", onClick: this.handleUnsplashSelected, label: "Unsplash" }),
+          React.createElement("input", { type: "button", onClick: this.handleFlickrSelected, label: "Flickr" }),
           React.createElement(SearchInputIcon, {
             isLoading: isLoadingSearch,
             hasError: !!error,
