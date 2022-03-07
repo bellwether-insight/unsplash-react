@@ -204,6 +204,14 @@ export default class UnsplashPicker extends React.Component {
       .catch(e => this.setState({ error: e.message, isLoadingSearch: false }))
   }
 
+  handleUnsplashSelected = e => {
+    this.setState({ mode: "unsplash"})
+  }
+  
+  handleFlickrSelected = e => {
+    this.setState({ mode: "flickr"})
+  }
+
   handleSearchChange = e => {
     this.setState({ search: e.target.value })
   }
@@ -301,6 +309,8 @@ export default class UnsplashPicker extends React.Component {
           onClick={this.handleSearchWrapperClick}
         >
 
+          <input type="button" onClick={this.handleUnsplashSelected} label="Unsplash"/>
+          <input type="button" onClick={this.handleFlickrSelected} label="Flickr"/>
 
           <SearchInputIcon
             isLoading={isLoadingSearch}
